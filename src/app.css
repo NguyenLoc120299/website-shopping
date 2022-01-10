@@ -1,0 +1,16 @@
+.text_nav {
+    display: block;
+}
+label {
+    font-weight: bold;
+}
+.upload_label {
+    border: 1px solid #aaa;
+    padding: 5px;
+    margin: 5px;
+}
+@media (max-width: 786px) {
+    .text_nav {
+        display: none;
+    }
+}

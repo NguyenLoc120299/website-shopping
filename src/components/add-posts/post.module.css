@@ -1,0 +1,44 @@
+.login {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    font-weight: 700;
+    text-align: center;
+    color: rgb(213, 90, 203);
+    font-size: 2rem;
+}
+.img_post {
+    width: 5rem;
+    object-fit: cover;
+    margin: 5px;
+}
+.img_posts {
+    width: 10rem;
+    height: auto;
+}
+.deleteImages {
+    position: absolute;
+    right: 0;
+    top: -8px;
+    font-weight: bold;
+    color: darkred;
+    background: #ccc;
+    border-radius: 50%;
+    /* width: 5px; */
+    /* height: 5px; */
+    padding: 0 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+@media (min-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+    .img_post {
+        width: 10rem;
+    }
+}
