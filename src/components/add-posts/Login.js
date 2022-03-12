@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Col, Container, Form, Row } from 'react-bootstrap'
 
 import style from './post.module.css'
-import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../../firebase.config.js'
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
+import { auth, provierGoogle } from '../../firebase.config.js'
 import { Button } from '@chakra-ui/react'
 import { EmailIcon, UnlockIcon } from '@chakra-ui/icons'
 import swal from 'sweetalert'
@@ -19,6 +19,22 @@ const Login = () => {
         const { name, value } = e.target
         setLoginValue({ ...loginValue, [name]: value })
     }
+    // const facebookApi = async () => {
+    //     try {
+    //         const res = await signInWithPopup(auth, provierFacebook)
+    //         return res.user;
+    //     } catch (err) {
+    //         return swal('Có lỗi xảy ra', `${err.message}`, 'error')
+    //     }
+    // }
+    const googleApi = async () => {
+        try {
+            const res = await signInWithPopup(auth, provierGoogle)
+            return res.user;
+        } catch (err) {
+            return swal('Có lỗi xảy ra', `${err.message}`, 'error')
+        }
+    }
     const login = async () => {
         try {
             setIsLoading(true)
@@ -31,17 +47,18 @@ const Login = () => {
         }
 
     }
+
     return (
         <div className={style.login}>
 
             <Container fluid>
                 <Row className='justify-content-center align-item-center'>
-                    <Col className='col-md-4'>
-                        <div>
+                    <Col className='col-md-5'>
+                        <div className={style.form__login}>
                             <h2 className={style.title}>Châu Nhung Shop</h2>
                             <Form.Group className="mb-3" >
-                                <Form.Label> <EmailIcon style={{ marginRight: '5px' }} />Email</Form.Label>
-                                <Form.Control type="email" placeholder="Nhập gmail"
+                                <Form.Label> <EmailIcon style={{ marginRight: '5px' }} />Gmail</Form.Label>
+                                <Form.Control type="email" placeholder="Enter Gmail"
                                     name='email'
                                     value={loginValue.email}
                                     onChange={handleChangeValue}
@@ -49,7 +66,7 @@ const Login = () => {
                             </Form.Group>
                             <Form.Group className="mb-3" >
                                 <Form.Label><UnlockIcon style={{ marginRight: '5px' }} />Password</Form.Label>
-                                <Form.Control type='password' placeholder='Nhập mật khẩu'
+                                <Form.Control type='password' placeholder='Enter Password'
                                     name='password'
                                     value={loginValue.password}
                                     onChange={handleChangeValue}
@@ -63,6 +80,7 @@ const Login = () => {
                         </div>
                     </Col>
                 </Row>
+
             </Container>
         </div>
     )

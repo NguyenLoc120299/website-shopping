@@ -4,6 +4,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { DataProvider } from './store/Store';
 import { ChakraProvider } from '@chakra-ui/react'
+import "swiper/css/bundle";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 ReactDOM.render(
   <React.StrictMode>
     <DataProvider>

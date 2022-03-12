@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-
+import { Link } from 'react-router-dom'
 import { auth } from '../../firebase.config'
 import { signOut } from 'firebase/auth'
 import { Button, Table, TableCaption, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react'
@@ -35,8 +35,15 @@ const Posts = () => {
             <div className='row'>
                 <div className='col'>
                     <div className='d-flex justify-content-between align-items-center py-3'>
-                        <p>User: <span>{isLogin && isLogin.email}</span></p>
-                        <Button colorScheme='red' leftIcon={<ImExit />} onClick={() => signOut(auth)}>Đăng xuất</Button>
+                        <p style={{ fontWeight: 700 }}>User: <span>{isLogin && isLogin?.displayName}</span></p>
+                        <Button colorScheme='red' leftIcon={<ImExit />} onClick={() => signOut(auth)}>Logout</Button>
+                    </div>
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col'>
+                    <div className='d-flex justify-content-center align-items-center'>
+                        <h3 className={style.titlePage}>Posts Manager</h3>
                     </div>
                 </div>
             </div>
@@ -44,7 +51,7 @@ const Posts = () => {
                 <div className='col'>
                     <div className='d-flex justify-content-start align-items-center py-3'>
 
-                        <Button colorScheme='green' onClick={() => isAdd()}>Thêm mới</Button>
+                        <Button colorScheme='green' onClick={() => isAdd()}>Add post</Button>
                     </div>
                 </div>
             </div>
@@ -52,13 +59,16 @@ const Posts = () => {
                 <div className='col'>
                     <div className='d-flex justify-content-center align-items-center'>
                         <Table variant='simple' size='lg'>
-                            <TableCaption>Tất cả sản phẩm trên trang web</TableCaption>
+                            <TableCaption><Link to='/' style={{
+                                textDecoration: 'none',
+                                cursor: 'pointer'
+                            }}>All product in website</Link> </TableCaption>
                             <Thead>
 
                                 <Tr>
-                                    <Th>Tên sản phẩm</Th>
-                                    <Th  >Giá</Th>
-                                    <Th>Ảnh</Th>
+                                    <Th>Product name</Th>
+                                    <Th>Price</Th>
+                                    <Th>Image</Th>
                                     <Th></Th>
                                 </Tr>
                             </Thead>
@@ -86,6 +96,7 @@ const Posts = () => {
                 onHide={() => setModalShow(false)}
                 postsValue={postsValue}
                 setPostsValue={setPostsValue}
+
             />
 
         </div>
