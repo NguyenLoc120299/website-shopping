@@ -5,12 +5,14 @@
     justify-content: center;
     align-items: center;
 }
+
 .titlePage {
     font-size: 42px;
     font-weight: 700;
     font-family: "Fredoka", sans-serif;
     padding: 1rem 0;
 }
+
 .title {
     font-weight: 700;
     text-align: center;
@@ -19,46 +21,44 @@
     padding: 1rem 0;
     font-family: "Fredoka", sans-serif;
 }
+
 .img_post {
-    width: 5rem;
+    width: 10rem;
+    height: 10rem;
     object-fit: cover;
     margin: 5px;
 }
-.img_posts {
-    width: 10rem;
-    height: auto;
-}
+
+
 .deleteImages {
     position: absolute;
-    right: 0;
-    top: -5px;
+    left: 50%;
+    top: 50%;
     font-weight: bold;
-    color: rgb(185, 54, 14);
-    box-shadow: 0 0 5px #555;
     border-radius: 50%;
-    /* width: 5px; */
-    /* height: 5px; */
     padding: 0 5px;
     font-size: 12px;
     cursor: pointer;
+    transform: translate(-50%,-50%);
 }
+
 .deleteImages:hover {
-    background: red;
     color: #fff;
 }
+
 .form__login {
     box-shadow: 0 0 5px #cccc;
     padding: 30px;
     border-radius: 15px;
 }
+
 @media (min-width: 768px) {
     .title {
         font-size: 3rem 0;
     }
+
     .img_post {
         width: 10rem;
         width: 10rem;
-        max-height: 15rem;
-        height: 100%;
     }
 }

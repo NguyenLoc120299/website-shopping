@@ -76,7 +76,7 @@ const ModalProducts = ({ ...props }) => {
             setIsLoading(false)
             swal('Thêm thành công', '', 'success')
             setImg(false)
-
+            props.onHide()
         } catch (error) {
             setIsLoading(false)
             swal('Có lỗi xảy ra', `${error.message}`, 'error')
@@ -120,7 +120,7 @@ const ModalProducts = ({ ...props }) => {
             }
             setIsLoading(false)
             setImg(false)
-
+            props.onHide()
             swal('Đã cập nhật thành công', '', 'success')
         } catch (error) {
             setIsLoading(false)
@@ -134,6 +134,7 @@ const ModalProducts = ({ ...props }) => {
         else {
             setImg(newArr)
         }
+      
     }
 
     const deleteImagesUpdate = (index) => {
@@ -164,7 +165,7 @@ const ModalProducts = ({ ...props }) => {
                         });
                     }
                 });
-
+            props.onHide()
         } catch (error) {
             swal('Có lỗi xảy ra', `${error.message}`, 'success')
         }
@@ -179,7 +180,7 @@ const ModalProducts = ({ ...props }) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Create post
+                    Tạo sản phẩm
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -194,7 +195,7 @@ const ModalProducts = ({ ...props }) => {
 
                 </FormControl>
                 <FormControl className='my-2'>
-                    <FormLabel >Ảnh</FormLabel>
+                    <FormLabel >Ảnh (ảnh đầu tiên sẽ được chọn làm ảnh đại diện)</FormLabel>
                     <div className='d-flex '>
                         <UploadImage
                             onchange={handleOnchangeImgae}

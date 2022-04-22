@@ -18,8 +18,6 @@ const Feature = () => {
       }}>Liên hệ ngay</FeatureButton>
       <video autoPlay loop muted id='video'>
         <source src={link} type="video/mp4" />
-
-
       </video>
     </FeatureContainer>
   );

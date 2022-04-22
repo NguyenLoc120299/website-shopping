@@ -35,15 +35,15 @@ const Posts = () => {
             <div className='row'>
                 <div className='col'>
                     <div className='d-flex justify-content-between align-items-center py-3'>
-                        <p style={{ fontWeight: 700 }}>User: <span>{isLogin && isLogin?.displayName}</span></p>
-                        <Button colorScheme='red' leftIcon={<ImExit />} onClick={() => signOut(auth)}>Logout</Button>
+                        <p style={{ fontWeight: 700 }}>User: <span>Admin</span></p>
+                        <Button colorScheme='red' leftIcon={<ImExit />} onClick={() => signOut(auth)}>Đăng xuất</Button>
                     </div>
                 </div>
             </div>
             <div className='row'>
                 <div className='col'>
                     <div className='d-flex justify-content-center align-items-center'>
-                        <h3 className={style.titlePage}>Posts Manager</h3>
+                        <h3 className={style.titlePage}>Quản lý sản phẩm</h3>
                     </div>
                 </div>
             </div>
@@ -51,24 +51,24 @@ const Posts = () => {
                 <div className='col'>
                     <div className='d-flex justify-content-start align-items-center py-3'>
 
-                        <Button colorScheme='green' onClick={() => isAdd()}>Add post</Button>
+                        <Button colorScheme='green' onClick={() => isAdd()}>Thêm sản phẩm</Button>
                     </div>
                 </div>
             </div>
-            <div className='row'>
+            <div className='row  overflow-scroll'>
                 <div className='col'>
                     <div className='d-flex justify-content-center align-items-center'>
                         <Table variant='simple' size='lg'>
                             <TableCaption><Link to='/' style={{
                                 textDecoration: 'none',
                                 cursor: 'pointer'
-                            }}>All product in website</Link> </TableCaption>
+                            }}>Xem tất cả {posts.length} sản phẩm đã đăng trên web</Link> </TableCaption>
                             <Thead>
 
                                 <Tr>
-                                    <Th>Product name</Th>
-                                    <Th>Price</Th>
-                                    <Th>Image</Th>
+                                    <Th>Tên sản phẩm</Th>
+                                    <Th>Giá</Th>
+                                    <Th>Hình ảnh</Th>
                                     <Th></Th>
                                 </Tr>
                             </Thead>
@@ -79,7 +79,7 @@ const Posts = () => {
                                             <Td className={style.name_col}>{item.name}</Td>
                                             <Td >{(item.price).toLocaleString()}</Td>
                                             <Td ><img src={item.image[0]} className={style.img_posts} /></Td>
-                                            <Td><FiEdit2 color='blue' fontSize={25} onClick={() => onEdit(item)} style={{ cursor: 'pointer' }} /></Td>
+                                            <Td><FiEdit2 color='#aaa' fontSize={25} onClick={() => onEdit(item)} style={{ cursor: 'pointer' }} /></Td>
                                         </Tr>
                                     ))
                                 }

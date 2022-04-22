@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import style from './post.module.css'
 import { AiFillCamera } from 'react-icons/ai'
+import { MdOutlineDelete} from 'react-icons/md'
 const UploadImage = ({ img, onchange, imageEdit, deleteImages, imgaeCoppy, deleteImagesUpdate }) => {
 
     return (
@@ -8,7 +9,7 @@ const UploadImage = ({ img, onchange, imageEdit, deleteImages, imgaeCoppy, delet
             {
                 imageEdit ?
                     <div>
-                        <div className='d-flex  justify-content-center'>
+                        <div className='d-flex  justify-content-center align-items-center flex-wrap py-5'>
                             {
                                 imgaeCoppy && imgaeCoppy.map((item, inx) => (
                                     <div className='position-relative' key={inx}>
@@ -16,7 +17,7 @@ const UploadImage = ({ img, onchange, imageEdit, deleteImages, imgaeCoppy, delet
                                         <span
                                             className={style.deleteImages}
                                             onClick={() => deleteImagesUpdate(inx)}
-                                        >X</span>
+                                        ><MdOutlineDelete size={'20px'} color={"#fff"}/></span>
 
                                     </div>
                                 ))
@@ -34,7 +35,7 @@ const UploadImage = ({ img, onchange, imageEdit, deleteImages, imgaeCoppy, delet
                                                     <span
                                                         className={style.deleteImages}
                                                         onClick={() => deleteImages(inx)}
-                                                    >X</span>
+                                                    ><MdOutlineDelete size={'20px'} color={"#fff"} /></span>
                                                 </div>
                                             ))
                                         }
@@ -64,7 +65,7 @@ const UploadImage = ({ img, onchange, imageEdit, deleteImages, imgaeCoppy, delet
                                                 <span
                                                     className={style.deleteImages}
                                                     onClick={() => deleteImages(inx)}
-                                                >X</span>
+                                                ><MdOutlineDelete size={'20px'} color={"#fff"} /></span>
                                             </div>
                                         ))
                                     }
